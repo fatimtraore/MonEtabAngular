@@ -1,28 +1,51 @@
 <div>
-<main class="content">
+  <main class="content">
     <div class="form-header">
-      <h2>Ajouter un élève</h2>
+      <h2>Ajouter un professeur</h2>
     </div>
-    <div class="form-container">
-      <form action="#">
-        <label for="nom">Nom</label>
-        <input type="text" id="nom" name="nom">
+    <div class="form-container" style="border: 1px solid;width: 100%">
+      <form  [formGroup]="forms" >
+        <div class="form-left">
+          <label>Nom</label>
+          <small style="color: red" class="text-danger" *ngIf="isInvalidateInput(forms.controls['firstName'])">
+            <ng-container *ngIf="forms.controls['firstName'].hasError('required')">
+              Ce champ est réquis
+            </ng-container>
+          </small>
+          <input type="text" formControlName="firstName" class="form-control" placeholder="Entrez le nom de professeur" [class.is-invalid]="isInvalidateInput(forms.controls['firstName'])">
 
-        <label for="prenom">Prénom</label>
-        <input type="text" id="prenom" name="prenom">
 
-        <label for="matricule">Matricule</label>
-        <input type="text" id="matricule" name="matricule">
+          <label>Prénom</label>
+          <small style="color: red" class="text-danger" *ngIf="isInvalidateInput(forms.controls['lastName'])">
+            Ce champ est réquis
+          </small>
+          <input type="text" formControlName="lastName" class="form-control" placeholder="Entrez le nom du professeur" [class.is-invalid]="isInvalidateInput(forms.controls['lastName'])">
 
-        <label for="genre">Genre</label>
-        <select id="genre" name="genre">
-          <option value="homme">Homme</option>
-          <option value="femme">Femme</option>
-        </select>
 
-        <div class="buttons">
-          <button type="submit" class="save">Enregistrer</button>
-          <button type="reset" class="delete">Supprimer</button>
+          <label>Matricule</label>
+          <small style="color: red" class="text-danger" *ngIf="isInvalidateInput(forms.controls['matricule'])">
+            Ce champ est réquis
+          </small>
+          <input type="text" formControlName="matricule" class="form-control" placeholder="Entrez le matricule du professeur" [class.is-invalid]="isInvalidateInput(forms.controls['matricule'])">
+
+          <div class="buttons">
+            <button type="reset" class="delete">Supprimer</button>
+            <button type="submit" class="save">Enregistrer</button>
+          </div>
+        </div   >
+        <div class="form-rigth" >
+
+          <label >Ville</label>
+          <small style="color: red" class="text-danger" *ngIf="isInvalidateInput(forms.controls['ville'])">
+            Ce champ est réquis
+          </small>
+          <input type="text" formControlName="ville" class="form-control" placeholder="Entrez la ville du professeur" [class.is-invalid]="isInvalidateInput(forms.controls['ville'])">
+
+          <label>Genre</label>
+          <select formControlName="gender" class="form-control" placeholder="Entrez le genre du professeur " [class.is-invalid]="isInvalidateInput(forms.controls['gender'])">
+            <option value="homme">Homme</option>
+            <option value="femme">Femme</option>
+          </select>
         </div>
       </form>
     </div>

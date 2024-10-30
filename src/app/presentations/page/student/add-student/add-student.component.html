@@ -7,7 +7,7 @@
       <form  [formGroup]="forms" >
         <div class="form-left">
           <label>Nom</label>
-          <small class="text-danger" *ngIf="isInvalidateInput(forms.controls['firstName'])">
+          <small style="color: red" class="text-danger" *ngIf="isInvalidateInput(forms.controls['firstName'])">
             <ng-container *ngIf="forms.controls['firstName'].hasError('required')">
               Ce champ est réquis
             </ng-container>
@@ -16,21 +16,21 @@
 
 
           <label>Prénom</label>
-          <small class="text-danger" *ngIf="isInvalidateInput(forms.controls['lastName'])">
+          <small style="color: red" class="text-danger" *ngIf="isInvalidateInput(forms.controls['lastName'])">
             Ce champ est réquis
           </small>
           <input type="text" formControlName="lastName" class="form-control" placeholder="Entrez le nom de l'élève" [class.is-invalid]="isInvalidateInput(forms.controls['lastName'])">
 
 
           <label>Matricule</label>
-          <small class="text-danger" *ngIf="isInvalidateInput(forms.controls['matricule'])">
+          <small style="color: red" class="text-danger" *ngIf="isInvalidateInput(forms.controls['matricule'])">
             Ce champ est réquis
           </small>
           <input type="text" formControlName="matricule" class="form-control" placeholder="Entrez le matricule de l'élève" [class.is-invalid]="isInvalidateInput(forms.controls['matricule'])">
 
 
           <label>Date de naissance </label>
-          <small class="text-danger" *ngIf="isInvalidateInput(forms.controls['dateNaissance'])">
+          <small style="color: red" class="text-danger" *ngIf="isInvalidateInput(forms.controls['dateNaissance'])">
             Ce champ est réquis
           </small>
           <input type="date" formControlName="dateNaissance" class="form-control" placeholder="Entrez la date naissance de l'élève" [class.is-invalid]="isInvalidateInput(forms.controls['dateNaissance'])">
@@ -42,7 +42,7 @@
         </div   >
         <div class="form-rigth" >
           <label>Téléphone</label>
-          <small class="text-danger" *ngIf="isInvalidateInput(forms.controls['telephone'])">
+          <small style="color: red" class="text-danger" *ngIf="isInvalidateInput(forms.controls['telephone'])">
             Ce champ est réquis
           </small>
           <input type="text" formControlName="telephone" class="form-control" placeholder="Entrez le numero de l'élève" [class.is-invalid]="isInvalidateInput(forms.controls['telephone'])">
