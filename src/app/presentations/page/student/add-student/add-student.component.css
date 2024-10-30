@@ -130,3 +130,8 @@ input, select {
 .save:hover, .delete:hover {
   opacity: 0.9;
 }
+
+.is-invalid {
+  border: 2px solid red; /* ou une autre épaisseur */
+  background-color: #ffe6e6; /* optionnel pour un fond légèrement rouge */
+}

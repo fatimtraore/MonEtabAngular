@@ -4,33 +4,58 @@
       <h2>Ajouter un élève</h2>
     </div>
     <div class="form-container" style="border: 1px solid;width: 100%">
-      <form action="#" >
+      <form  [formGroup]="forms" >
         <div class="form-left">
-          <label for="nom">Nom</label>
-          <input type="text" id="nom" name="nom" required>
+          <label>Nom</label>
+          <small class="text-danger" *ngIf="isInvalidateInput(forms.controls['firstName'])">
+            <ng-container *ngIf="forms.controls['firstName'].hasError('required')">
+              Ce champ est réquis
+            </ng-container>
+          </small>
+          <input type="text" formControlName="firstName" class="form-control" placeholder="Entrez le nom de l'élève" [class.is-invalid]="isInvalidateInput(forms.controls['firstName'])">
 
-          <label for="prenom">Prénom</label>
-          <input type="text" id="prenom" name="prenom">
 
-          <label for="matricule">Matricule</label>
-          <input type="text" id="matricule" name="matricule">
+          <label>Prénom</label>
+          <small class="text-danger" *ngIf="isInvalidateInput(forms.controls['lastName'])">
+            Ce champ est réquis
+          </small>
+          <input type="text" formControlName="lastName" class="form-control" placeholder="Entrez le nom de l'élève" [class.is-invalid]="isInvalidateInput(forms.controls['lastName'])">
 
-          <label for="age">Age</label>
-          <input type="text" id="age" name="age">
+
+          <label>Matricule</label>
+          <small class="text-danger" *ngIf="isInvalidateInput(forms.controls['matricule'])">
+            Ce champ est réquis
+          </small>
+          <input type="text" formControlName="matricule" class="form-control" placeholder="Entrez le matricule de l'élève" [class.is-invalid]="isInvalidateInput(forms.controls['matricule'])">
+
+
+          <label>Date de naissance </label>
+          <small class="text-danger" *ngIf="isInvalidateInput(forms.controls['dateNaissance'])">
+            Ce champ est réquis
+          </small>
+          <input type="date" formControlName="dateNaissance" class="form-control" placeholder="Entrez la date naissance de l'élève" [class.is-invalid]="isInvalidateInput(forms.controls['dateNaissance'])">
+
           <div class="buttons">
             <button type="reset" class="delete">Supprimer</button>
             <button type="submit" class="save">Enregistrer</button>
           </div>
         </div   >
         <div class="form-rigth" >
-          <label for="telephone">Téléphone</label>
-          <input type="text" id="telephone" name="telephone">
+          <label>Téléphone</label>
+          <small class="text-danger" *ngIf="isInvalidateInput(forms.controls['telephone'])">
+            Ce champ est réquis
+          </small>
+          <input type="text" formControlName="telephone" class="form-control" placeholder="Entrez le numero de l'élève" [class.is-invalid]="isInvalidateInput(forms.controls['telephone'])">
 
-          <label for="ville">Ville</label>
-          <input type="text" id="ville" name="ville">
 
-          <label for="genre">Genre</label>
-          <select id="genre" name="genre">
+          <label >Ville</label>
+          <small style="color: red" class="text-danger" *ngIf="isInvalidateInput(forms.controls['ville'])">
+            Ce champ est réquis
+          </small>
+          <input type="text" formControlName="ville" class="form-control" placeholder="Entrez la ville de l'élève" [class.is-invalid]="isInvalidateInput(forms.controls['ville'])">
+
+          <label>Genre</label>
+          <select formControlName="gender" class="form-control" placeholder="Entrez le genre de l'élève" [class.is-invalid]="isInvalidateInput(forms.controls['gender'])">
             <option value="homme">Homme</option>
             <option value="femme">Femme</option>
           </select>
