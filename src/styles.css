@@ -1,1 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+app-list-student, app-add-student, app-update-student, app-repport, app-list-user, app-add-user,
+app-add-teacher, app-list-teacher{
+  width: 100%;
+}
+
